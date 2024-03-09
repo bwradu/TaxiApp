@@ -51,6 +51,7 @@ class UI:
         print(f'The average kilometers of the fleet is {average_km}')
 
     def run(self):
+        print("App started")
         while True:
             self.__print_menu()
             try:

@@ -54,7 +54,7 @@ class UI:
         while True:
             self.__print_menu()
             try:
-                command = int(input("Choose the command: ").strip())  # sterge spatiile
+                command = int(input("Choose the option: ").strip())  # sterge spatiile
                 if command == 0:
                     return
                 elif command == 1:

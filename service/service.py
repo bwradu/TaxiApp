@@ -1,5 +1,5 @@
-from TaxiApp.entities import Car
-from TaxiApp.exceptions import CustomException
+from TaxiApp.domain.animal import Car
+from TaxiApp.domain.exceptions import CustomException
 
 
 class Service:

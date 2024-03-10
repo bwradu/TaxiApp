@@ -1,5 +1,5 @@
-from TaxiApp.service import Service
-from TaxiApp.ui import UI
+from service.service import Service
+from UI.ui import UI
 
 service = Service()
 ui = UI(service)

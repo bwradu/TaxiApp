@@ -1,6 +1,6 @@
-from TaxiApp.exceptions import CustomException
-from TaxiApp.service import Service
-from TaxiApp.entities import Car
+from domain.exceptions import CustomException
+from service.service import Service
+from domain.animal import Car
 
 
 class UI:

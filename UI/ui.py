@@ -1,11 +1,12 @@
-from domain.exceptions import CustomException
-from service.service import Service
-from domain.animal import Car
+
+from TaxiApp.service.carservice import CarService
+from TaxiApp.domain.animal import Car
+from TaxiApp.domain.exceptions import CustomException
 
 
 class UI:
-    def __init__(self, service: Service):
-        self.__service = service
+    def __init__(self, car_service: CarService):
+        self.__car_service = car_service
 
     def __print_menu(self):
         print("1. Add taxi car")
@@ -28,7 +29,7 @@ class UI:
         horsepower = input('horsepower: ')
         kilometers_on_board = input('kilometers_on_board: ')
         self.__validate_horsepower(horsepower)
-        self.__service.add_car(Car(manufacturer, registration, int(horsepower), int(kilometers_on_board)))
+        self.__car_service.add_car(Car(manufacturer, registration, int(horsepower), int(kilometers_on_board)))
 
 
     def __remove_car(self):
@@ -36,18 +37,18 @@ class UI:
         manufacturer = 'a'
         horsepower = 2
         kilometers_on_board = 2
-        self.__service.remove_car(Car(manufacturer, registration, int(horsepower), int(kilometers_on_board)))
+        self.__car_service.remove_car(Car(manufacturer, registration, int(horsepower), int(kilometers_on_board)))
 
     def __show_cars(self):
-        for car in self.__service.show_cars():
+        for car in self.__car_service.show_cars():
             print(car)
 
     def __show_common_car(self):
-        print(self.__service.common_car())
+        print(self.__car_service.common_car())
 
     def __average_kilometers(self):
-        average_km = self.__service.average_kilometers()
-        average_km = round(self.__service.average_kilometers(), 2)
+        average_km = self.__car_service.average_kilometers()
+        average_km = round(self.__car_service.average_kilometers(), 2)
         print(f'The average kilometers of the fleet is {average_km}')
 
     def run(self):

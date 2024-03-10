@@ -85,6 +85,5 @@ class CarService:
             if value > max_value:
                 max_value = value
                 final_car = key
-
         return final_car
 

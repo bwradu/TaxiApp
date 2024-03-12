@@ -1,4 +1,4 @@
-from TaxiApp.domain.exceptions import CustomException
+from domain.exceptions import CustomException
 
 
 class Repository:
@@ -17,11 +17,12 @@ class Repository:
             raise CustomException("Entity already exists")
         self.__entities_list.append(entity)
 
-    def get_all(self):
-        return self.__entities_list
 
     def delete(self, entity):
         position = self.__find_position(entity)
         if position is None:
             raise CustomException("Entity does not exist")
         del self.__entities_list[position]
+
+    def get_all(self):
+        return self.__entities_list

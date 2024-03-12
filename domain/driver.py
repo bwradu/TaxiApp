@@ -4,9 +4,8 @@ class Driver:
         self.__age = age
         self.__car_name = car_name
 
-
-    def set_name(self, name):
-        self.__name = name
+    def set_name(self, new_name):
+        self.__name = new_name
 
     def get_name(self):
         return self.__name
@@ -14,8 +13,8 @@ class Driver:
     def get_age(self):
         return self.__age
 
-    def set_car_name(self, car_name):
-        self.__car_name = car_name
+    def set_car_name(self, new_car_name):
+        self.__car_name = new_car_name
 
     def get_car_name(self):
         return self.__car_name

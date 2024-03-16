@@ -14,9 +14,8 @@ class DriverService:
         """
         self.__repository.add(new_driver)
 
-
-    def delete_driver(self, caretaker_to_delete):
-        self.__repository.delete(caretaker_to_delete)
+    def delete_driver(self, driver_to_delete):
+        self.__repository.delete(driver_to_delete)
 
     def get_all_drivers(self):
         return self.__repository.get_all()

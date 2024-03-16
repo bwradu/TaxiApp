@@ -29,11 +29,13 @@ class UI:
         print("2. Remove a car after the registration number")
         print("3. Show all the car of the fleet")
         print("4. Show the most common car in the taxi company")
-        print("5. Show the average number of kilometers across the fleet of cars")
+        print("5. Show the average number of kilometers across the fleet of cars\n")
+
         print("6  Add driver")
-        print("7. Remove driver")
+        print("7. Average driver age")
         print("8. Show all drivers")
         print("9  Cars with no drivers")
+        print("10. Delete driver")
         print("0. Exit")
 
     def __validate_horsepower(self, horsepower):
@@ -52,7 +54,7 @@ class UI:
 
     def __delete_car(self):
         registration = input("REGISTRATION of the car to delete: ")
-        name = 'a'
+        name = ''
         horsepower = 2
         kilometers_on_board = 2
         self.__car_service.delete_car(Car(name, registration, int(horsepower), int(kilometers_on_board)))
@@ -70,23 +72,30 @@ class UI:
 
     def __add_driver(self):
         name = input('name: ')
-        age = input('age ')
+        age = input('age: ')
         car_name = input('car driven: ')
         self.__driver_service.add_driver(Driver(name, int(age), car_name))
         print("Driver added!")
+
+    def __delete_driver(self):
+        name = input('name: ')
+        age = 0
+        car_name = input("car_name")
+        self.__driver_service.delete_driver(Driver(name, int(age), car_name))
+        print("Driver deleted!")
 
     def __show_all_drivers(self):
         for drivers in self.__driver_service.get_all_drivers():
             print(drivers)
 
-    def __average_caretaker_age(self):
+    def __average_driver_age(self):
         average_age = round(self.__driver_service.average_age(), 2)
-        print(f'The average age of all the caretakers is {average_age}')
+        print(f'The average age of all the drivers is {average_age}')
 
     def __show_cars_with_no_driver(self):
         cars = self.__statistics_service.get_cars_without_drivers()
         if len(cars) == 0:
-            print('No animals without caretakers!')
+            print('No cars without drivers!')
             return
         for animal in self.__statistics_service.get_cars_without_drivers():
             print(animal)
@@ -111,11 +120,13 @@ class UI:
                     self.__average_kilometers()
                 elif command == 6:
                     self.__add_driver()
-                #elif command == 7:
-                 #   self.__
+                elif command == 7:
+                    self.__average_driver_age()
                 elif command == 8:
                     self.__show_all_drivers()
                 elif command == 9:
                     self.__show_cars_with_no_driver()
+                elif command == 10:
+                    self.__delete_driver()
             except CustomException as error:
                 print(error)
